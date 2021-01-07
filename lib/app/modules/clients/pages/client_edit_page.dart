@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 class ClientPage extends StatelessWidget {
-  const ClientPage({Key key}) : super(key: key);
+  final int id;
+  const ClientPage({Key key, this.id = 0}) : super(key: key);
 
   final int currentIndex = 0;
 
@@ -16,9 +17,9 @@ class ClientPage extends StatelessWidget {
       bottomNavigationBar: BottomNavigationBar(
         onTap: (id) {
           if (id == 0) {
-            Modular.to.navigate('/clientes/edit/details');
+            Modular.to.navigate('/clientes/edit/details/x');
           } else if (id == 1) {
-            Modular.to.navigate('/clientes/edit/invoices');
+            Modular.to.navigate('/clientes/edit/invoices/x');
           }
         },
         currentIndex: currentIndex,

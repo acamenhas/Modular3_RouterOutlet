@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:flutter_triple/flutter_triple.dart';
+import 'package:modular3/app/modules/clients/models/client_model.dart';
+
+import '../clients_controller.dart';
 
 class ClientsPage extends StatefulWidget {
   final String title;
@@ -9,25 +13,37 @@ class ClientsPage extends StatefulWidget {
   _ClientsPageState createState() => _ClientsPageState();
 }
 
-class _ClientsPageState extends State<ClientsPage> {
+class _ClientsPageState extends ModularState<ClientsPage, ClientsController> {
+  @override
+  void initState() {
+    super.initState();
+    store.getAll();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Column(
-        children: <Widget>[
-          ListTile(
-            leading: FlutterLogo(),
-            title: Text('Nome do meu primeiro cliente'),
-            trailing: Icon(Icons.chevron_right),
-            onTap: () {
-              Modular.to.navigate("/clientes/edit/details");
-            },
-          )
-        ],
-      ),
-    );
+        appBar: AppBar(
+          title: Text(widget.title),
+        ),
+        body: ScopedBuilder<ClientsController, Exception, List<ClientModel>>(
+            store: store,
+            onState: (_, state) {
+              return ListView.builder(
+                itemCount: state.length,
+                itemBuilder: (_, index) => ListTile(
+                  leading: FlutterLogo(),
+                  title: Text(
+                    state[index].name,
+                  ),
+                  trailing: Icon(
+                    Icons.chevron_right,
+                  ),
+                  onTap: () {
+                    Modular.to.pushNamed("/clientes/edit/details/11");
+                  },
+                ),
+              );
+            }));
   }
 }

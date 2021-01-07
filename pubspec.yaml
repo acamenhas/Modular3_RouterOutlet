@@ -15,7 +15,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 1.0.0+1
+version: 1.0.0+2
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
@@ -31,7 +31,8 @@ scripts:
     mobx_build_clean: $clean & $get & $runner build --delete-conflicting-outputs
 
 dependencies:
-  flutter_modular: ^3.0.0-nullsafety.24
+  hasura_connect: ^2.0.1
+  flutter_modular: ^3.0.0-nullsafety.26
   flutter_triple: ^0.0.20
   flutter:
     sdk: flutter

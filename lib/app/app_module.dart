@@ -3,10 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:modular3/app/app_widget.dart';
 import 'package:modular3/app/modules/clients/clients_module.dart';
 import 'package:modular3/app/modules/dashboard/dashboard_module.dart';
+import 'package:modular3/app/shared/custom_hasura_connect.dart';
 
 class AppModule extends MainModule {
   @override
-  final List<Bind> binds = [];
+  final List<Bind> binds = [
+    Bind((i) => CustomHasuraConnect.getConnect()),
+  ];
 
   @override
   final List<ModularRoute> routes = [
