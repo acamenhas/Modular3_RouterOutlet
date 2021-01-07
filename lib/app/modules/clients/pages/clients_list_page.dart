@@ -14,10 +14,44 @@ class ClientsPage extends StatefulWidget {
 }
 
 class _ClientsPageState extends ModularState<ClientsPage, ClientsController> {
+  Disposer _disposer;
+
+  OverlayEntry loadingOverlay = OverlayEntry(builder: (_) {
+    return Container(
+      alignment: Alignment.center,
+      color: Colors.black38,
+      child: CircularProgressIndicator(),
+    );
+  });
+
+  @override
+  void dispose() {
+    _disposer();
+    super.dispose();
+  }
+
   @override
   void initState() {
     super.initState();
     store.getAll();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => Overlay.of(context)
+        ?.insert(loadingOverlay)); //sem esta linha o loading não aparece
+
+    _disposer = store.observer(onLoading: (isLoading) {
+      if (store.isLoading) {
+        Overlay.of(context)?.insert(loadingOverlay);
+      } else {
+        loadingOverlay.remove();
+      }
+    }, onError: (error) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          backgroundColor: Colors.red,
+          content: Text(store.error.toString() ?? 'Erro disconhecido'),
+        ),
+      );
+    });
   }
 
   @override
