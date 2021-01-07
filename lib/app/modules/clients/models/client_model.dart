@@ -1,5 +1,5 @@
 class ClientModel {
-  String id;
+  int id;
   String name;
 
   ClientModel({this.id, this.name});

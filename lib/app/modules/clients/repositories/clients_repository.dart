@@ -19,7 +19,7 @@ class ClientsRepository implements Disposable {
       if (data == null) {
         return null;
       }
-      return ClientModel.fromJsonList(data["data"]["llcl_clients"]);
+      return ClientModel.fromJsonList(data["data"]["clients"]);
     });
   }
 
