@@ -16,7 +16,7 @@ class ClientsController extends StreamStore<Exception, List<ClientModel>>
   Future getAll() async {
     setLoading(true);
     snapshot = await repository.getAll();
-    await Future.delayed(Duration(milliseconds: 1000));
+    //await Future.delayed(Duration(milliseconds: 1000));
     await for (var value in snapshot) {
       setLoading(false);
       update(value);

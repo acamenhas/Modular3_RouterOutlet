@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:modular3/app/modules/clients/models/client_model.dart';
 import 'package:modular3/app/modules/clients/pages/client_details_page.dart';
 import 'package:modular3/app/modules/clients/pages/client_edit_page.dart';
 import 'package:modular3/app/modules/clients/pages/client_invoices_page.dart';
@@ -23,9 +24,9 @@ class ClientsModule extends ChildModule {
       '/edit',
       child: (context, args) => ClientPage(),
       children: [
-        ChildRoute('/details/:id',
+        ChildRoute('/details',
             child: (_, args) =>
-                ClientDetailsPage(id: int.parse(args.params['id']))),
+                ClientDetailsPage(client: args.data as ClientModel)),
         ChildRoute('/invoices/:id',
             child: (_, args) =>
                 ClientInvoicesPage(id: int.parse(args.params['id']))),

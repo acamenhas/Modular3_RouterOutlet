@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:modular3/app/modules/clients/models/client_model.dart';
 
 class ClientDetailsPage extends StatefulWidget {
-  final int id;
-  ClientDetailsPage({Key key, this.id = 0}) : super(key: key);
+  final ClientModel client;
+  ClientDetailsPage({Key key, this.client}) : super(key: key);
 
   @override
   _ClientDetailsPageState createState() => _ClientDetailsPageState();
@@ -10,11 +11,16 @@ class ClientDetailsPage extends StatefulWidget {
 
 class _ClientDetailsPageState extends State<ClientDetailsPage> {
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Container(
       child: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Text("Client id: " + widget.id.toString()),
+        child: Text("Client details id: " + widget.client.id.toString()),
       ),
     );
   }

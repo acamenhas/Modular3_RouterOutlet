@@ -74,7 +74,8 @@ class _ClientsPageState extends ModularState<ClientsPage, ClientsController> {
                     Icons.chevron_right,
                   ),
                   onTap: () {
-                    Modular.to.pushNamed("/clientes/edit/details/11");
+                    Modular.to.pushNamed("/clientes/edit/details",
+                        arguments: ClientModel(id: 1, name: "TESTE123"));
                   },
                 ),
               );

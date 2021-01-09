@@ -32,7 +32,7 @@ scripts:
 
 dependencies:
   hasura_connect: ^2.0.1
-  flutter_modular: ^3.0.0-nullsafety.27
+  flutter_modular: ^3.0.0-nullsafety.28
   flutter_triple: ^0.0.20
   flutter:
     sdk: flutter

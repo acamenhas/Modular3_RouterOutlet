@@ -135,7 +135,7 @@
     },
     {
       "name": "flutter_modular",
-      "rootUri": "file:///Users/arturcamenhas/Library/Flutter/.pub-cache/hosted/pub.dartlang.org/flutter_modular-3.0.0-nullsafety.27",
+      "rootUri": "file:///Users/arturcamenhas/Library/Flutter/.pub-cache/hosted/pub.dartlang.org/flutter_modular-3.0.0-nullsafety.28",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -368,7 +368,7 @@
       "languageVersion": "2.7"
     }
   ],
-  "generated": "2021-01-07T11:33:33.874005Z",
+  "generated": "2021-01-09T17:06:22.801889Z",
   "generator": "pub",
   "generatorVersion": "2.12.0-29.10.beta"
 }
